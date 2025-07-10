@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Jetson Dashboard</title></head>
+<body>
+  <h1>Current Trading Signal</h1>
+  <div id="signalBox">Loading...</div>
+  <script>
+    fetch("/signal")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("signalBox").innerText = JSON.stringify(data, null, 2);
+      });
+  </script>
+</body>
+</html>
